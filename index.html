@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>وبلاگ رسمی مبین رسول زاده</title>
+  <style>
+    body {
+      font-family: Tahoma, sans-serif;
+      background-color: #f0f8ff;
+      margin: 0;
+      padding: 20px;
+      direction: rtl;
+    }
+    h1, h2 {
+      color: #003f7f;
+    }
+    .carousel {
+      position: relative;
+      max-width: 600px;
+      margin: 20px auto;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    .carousel img {
+      width: 100%;
+      display: none;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .carousel img.active {
+      display: block;
+    }
+    .carousel-controls {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .carousel-controls button {
+      background-color: #003f7f;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      margin: 0 5px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      color: #555;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>وبلاگ رسمی مبین رسول زاده</h1>
+
+  <img src="mobin.jpg" alt="عکس مبین رسول زاده" width="180" style="border-radius: 50%; display: block; margin: 20px auto;" />
+
+  <h2>درباره من</h2>
+  <p>
+    من <strong>مبین رسول زاده</strong> هستم، متولد ۱۴ آذر ۱۳۸۴، ساکن تبریز. عاشق بازیگری طنز هستم و در نمایشی به نام
+    <em>دیوانه من هوراشیو هستم</em> نقش یک شعبده‌باز را ایفا کرده‌ام.
+  </p>
+
+  <h2>علاقه‌مندی‌ها</h2>
+  <ul>
+    <li>بازیگری طنز</li>
+    <li>آشپزی</li>
+    <li>نقاشی</li>
+  </ul>
+
+  <h2>گالری عکس (اسلایدی)</h2>
+  <div class="carousel">
+    <img src="aks1.jpg" class="active" alt="عکس 1">
+    <img src="aks2.jpg" alt="عکس 2">
+    <img src="aks3.jpg" alt="عکس 3">
+    <img src="aks4.jpg" alt="عکس 4">
+    <img src="aks5.jpg" alt="عکس 5">
+  </div>
+  <div class="carousel-controls">
+    <button onclick="prevSlide()">قبلی</button>
+    <button onclick="nextSlide()">بعدی</button>
+  </div>
+
+  <h2>تماس با من</h2>
+  <p>برای ارتباط با من، لطفاً از بخش نظرات همین وبلاگ استفاده کنید.</p>
+
+  <footer>
+    طراحی شده توسط مبین رسول زاده | تمامی حقوق محفوظ است © 2025
+  </footer>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel img');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) slide.classList.add('active');
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    setInterval(nextSlide, 5000);
+  </script>
+
+</body>
+</html>
